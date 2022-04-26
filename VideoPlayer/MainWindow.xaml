@@ -1,0 +1,42 @@
+﻿<Window x:Class="VideoPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VideoPlayer"
+        mc:Ignorable="d"
+        Title="My player" Icon="C:\\Users\\Admin\\Figures\\bird.png" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <MediaElement MouseWheel="Player_MouseWheel" MediaOpened="Player_Loaded" x:Name="Player" LoadedBehavior="Manual" Source="C:\\Users\\Admin\\Downloads\\videoplayback.mp4"></MediaElement>
+        <ListBox Grid.Column="1" Background="LightGoldenrodYellow"></ListBox>
+        <Slider x:Name="PositionSlider" Grid.Row="1"></Slider>
+        <Slider x:Name="Volume" ValueChanged="Volume_ValueChanged" Grid.Row="1" Grid.Column="1" Maximum="100" Value="50"></Slider>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Margin="5" Grid.Column="0"> пред.</Button>
+            <Button Margin="5" Grid.Column="1"> перемотка назад</Button>
+            <Button x:Name="PlayBTN" Click="PlayBTN_Click" Margin="5" Grid.Column="2"> плэй</Button>
+            <Button x:Name="StopBTN" Click="StopBTN_Click" Margin="5" Grid.Column="3"> стоп</Button>
+            <Button Margin="5" Grid.Column="4"> перемотка вперёд</Button>
+            <Button Margin="5" Grid.Column="5"> след.</Button>
+            <Button Margin="5" Grid.Column="6"> открыть</Button>
+        </Grid>
+    </Grid>
+</Window>
