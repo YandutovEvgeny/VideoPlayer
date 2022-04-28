@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VideoPlayer"
         mc:Ignorable="d"
-        Title="My player" Icon="C:\\Users\\Admin\\Figures\\bird.png" Height="450" Width="800">
+        Title="My player" Closing="Window_Closing" Icon="C:\\Users\\Admin\\Figures\\bird.png" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6*"></ColumnDefinition>
@@ -16,11 +16,17 @@
             <RowDefinition Height="0.8*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <MediaElement MouseWheel="Player_MouseWheel" MediaOpened="Player_Loaded" x:Name="Player" LoadedBehavior="Manual" Source="C:\\Users\\Admin\\Downloads\\videoplayback.mp4"></MediaElement>
-        <ListBox Grid.Column="1" Background="LightGoldenrodYellow"></ListBox>
-        <Slider x:Name="PositionSlider" Grid.Row="1"></Slider>
+        <MediaElement 
+            KeyDown="Player_KeyDown"
+            MouseDown="Player_MouseDown" MouseWheel="Player_MouseWheel" 
+            MediaOpened="Player_Loaded" x:Name="Player" LoadedBehavior="Manual" 
+            Source="C:\\Users\\Admin\\Downloads\\videoplayback.mp4"></MediaElement>
+        <ListBox MouseDoubleClick="FilmsLB_MouseDoubleClick" x:Name="FilmsLB" Grid.Column="1" Background="LightGoldenrodYellow"></ListBox>
+        <Slider Thumb.DragStarted="PositionSlider_DragStarted"
+                Thumb.DragCompleted="PositionSlider_DragCompleted"
+                x:Name="PositionSlider" Grid.Row="1"></Slider>
         <Slider x:Name="Volume" ValueChanged="Volume_ValueChanged" Grid.Row="1" Grid.Column="1" Maximum="100" Value="50"></Slider>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" Background="#00DDDDDD">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -30,13 +36,26 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Margin="5" Grid.Column="0"> пред.</Button>
-            <Button Margin="5" Grid.Column="1"> перемотка назад</Button>
-            <Button x:Name="PlayBTN" Click="PlayBTN_Click" Margin="5" Grid.Column="2"> плэй</Button>
-            <Button x:Name="StopBTN" Click="StopBTN_Click" Margin="5" Grid.Column="3"> стоп</Button>
-            <Button Margin="5" Grid.Column="4"> перемотка вперёд</Button>
-            <Button Margin="5" Grid.Column="5"> след.</Button>
-            <Button Margin="5" Grid.Column="6"> открыть</Button>
+            <Button Click="First_trackBTN_Click" x:Name="First_trackBTN" Margin="5" 
+                    Grid.Column="0" Background="#00DDDDDD">
+                <Image Source="Resources/first-track-icon.png"></Image>
+            </Button>
+            <Button Click="Button_Click" Margin="5" Grid.Column="1" Background="#00DDDDDD">
+                <Image Source="Resources/rewind-icon.png"></Image>
+            </Button>
+            <Button x:Name="PlayBTN" Click="PlayBTN_Click" Margin="5" Grid.Column="2" Background="#00DDDDDD">
+                <Image x:Name="PlayIMG" Source="Resources/play-icon.png"></Image>
+            </Button>
+            <Button x:Name="StopBTN" Click="StopBTN_Click" Margin="5" Grid.Column="3" Background="#00DDDDDD">
+                <Image Source="Resources/stop-icon.png"></Image>
+            </Button>
+            <Button Click="Button_Click_1" Margin="5" Grid.Column="4" Background="#00DDDDDD">
+                <Image Source="Resources/forward-icon.png"></Image>
+            </Button>
+            <Button Click="Last_trackBTN_Click" x:Name="Last_trackBTN" Margin="5" Grid.Column="5" Background="#00DDDDDD">
+                <Image Source="Resources/last-track-icon.png"></Image>
+            </Button>
+            <Button x:Name="OpenBTN" Click="OpenBTN_Click" Margin="5" Grid.Column="6" Background="#00DDDDDD">открыть</Button>
         </Grid>
     </Grid>
 </Window>

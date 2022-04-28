@@ -94,5 +94,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\audio-icon.png" />
+    <Resource Include="Resources\audio-off-icon.png" />
+    <Resource Include="Resources\first-track-icon.png" />
+    <Resource Include="Resources\forward-icon.png" />
+    <Resource Include="Resources\last-track-icon.png" />
+    <Resource Include="Resources\pause-icon.png" />
+    <Resource Include="Resources\play-icon.png" />
+    <Resource Include="Resources\replay-icon.png" />
+    <Resource Include="Resources\rewind-icon.png" />
+    <Resource Include="Resources\shuffle-icon.png" />
+    <Resource Include="Resources\stop-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
