@@ -152,20 +152,19 @@ namespace VideoPlayer
             if(e.ClickCount == 2)
             {
                 //TODO:Увеличить видео на весь экран
-                if(isFullScreen)    
+                if(isFullScreen)  
                 {
-                    /*WindowState = WindowState.Normal;
-                    WindowStyle = WindowStyle.None;*/
-                    WindowState = WindowState.Normal;
-                    WindowStyle = WindowStyle.None;
-
-                }
-                else
-                {
-                    /*WindowState = WindowState.Maximized;
-                    WindowStyle = WindowStyle.SingleBorderWindow;*/
-                    WindowState = WindowState.Maximized;
+                    Content = layoutRoot;
+                    layoutRoot.Children.Add(Player);
                     WindowStyle = WindowStyle.SingleBorderWindow;
+                    WindowState = WindowState.Normal;
+                }
+                else 
+                {
+                    layoutRoot.Children.Remove(Player);
+                    this.Content = Player;
+                    this.WindowStyle = WindowStyle.None;
+                    this.WindowState = WindowState.Maximized;
                 }
                 isFullScreen = !isFullScreen;
             }

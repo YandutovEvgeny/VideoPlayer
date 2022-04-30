@@ -16,11 +16,14 @@
             <RowDefinition Height="0.8*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <MediaElement 
-            KeyDown="Player_KeyDown"
-            MouseDown="Player_MouseDown" MouseWheel="Player_MouseWheel" 
-            MediaOpened="Player_Loaded" x:Name="Player" LoadedBehavior="Manual" 
-            Source="C:\\Users\\Admin\\Downloads\\videoplayback.mp4"></MediaElement>
+        <DockPanel Name="layoutRoot">
+            <MediaElement 
+                KeyDown="Player_KeyDown"
+                MouseDown="Player_MouseDown" MouseWheel="Player_MouseWheel" 
+                MediaOpened="Player_Loaded" x:Name="Player" LoadedBehavior="Manual" 
+                Source="C:\\Users\\Admin\\Downloads\\videoplayback.mp4">
+            </MediaElement>
+        </DockPanel>
         <ListBox MouseDoubleClick="FilmsLB_MouseDoubleClick" x:Name="FilmsLB" Grid.Column="1" Background="LightGoldenrodYellow"></ListBox>
         <Slider Thumb.DragStarted="PositionSlider_DragStarted"
                 Thumb.DragCompleted="PositionSlider_DragCompleted"
